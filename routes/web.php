@@ -22,4 +22,6 @@ Route::get('/home', function () {
     $books = \App\Models\Book::all();
 
     return view('home', ['books' => $books]);
-});
+})->middleware('auth');
+
+Route::resource('book', \App\Http\Controllers\BookController::class);
